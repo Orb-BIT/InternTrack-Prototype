@@ -1531,7 +1531,11 @@ textarea.form-control { min-height: auto; }
 .evaluation-table td:last-child,
 .evaluation-table th:last-child { text-align: left; }
 .evaluation-table .btn-green,
-.evaluation-table .btn-outline-green { min-width: 148px; }
+.evaluation-table .btn-outline-green {
+  min-width: 148px;
+  justify-content: center;
+  text-align: center;
+}
 
 /* ================================================================
    19. RESPONSIVE BREAKPOINTS
@@ -5061,6 +5065,11 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
   color: #ffffff;
 }
 
+/* Remove the right-side status box only on the Attendance page hero. */
+.attendance-hero-card .attendance-hero-pill {
+  display: none;
+}
+
 @media (max-width: 767px) {
   .attendance-hero-card {
     padding: 1.25rem 1.15rem;
@@ -5087,5 +5096,249 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
   .attendance-hero-pill {
     width: 100%;
     min-width: 0;
+  }
+}
+
+/* ================================================================
+   23A. ATTENDANCE HERO SIMPLIFICATION
+   Keeps changes isolated to the Attendance page hero only.
+   ================================================================ */
+.attendance-hero-card {
+  border: 1px solid rgba(26,122,63,0.08);
+  background: linear-gradient(180deg, #ffffff 0%, #fbfdfb 100%);
+  box-shadow: 0 6px 18px rgba(16, 45, 30, 0.05);
+}
+
+.attendance-hero-card::before,
+.attendance-hero-card::after {
+  display: none;
+}
+
+.attendance-hero-title-row {
+  gap: 0;
+}
+
+.attendance-hero-icon {
+  display: none;
+}
+
+.attendance-hero-title {
+  color: var(--green-dark);
+}
+
+.attendance-hero-text {
+  margin-top: 0.3rem;
+  color: var(--text-mid);
+}
+
+.attendance-hero-card:hover {
+  border-color: rgba(26,122,63,0.14);
+  box-shadow: 0 12px 28px rgba(16, 45, 30, 0.08);
+  transform: translateY(-2px);
+}
+
+/* ================================================================
+   23B. ATTENDANCE SUMMARY ENHANCEMENTS
+   Scoped only to the Attendance page summary card.
+   ================================================================ */
+.attendance-summary-card {
+  overflow: hidden;
+}
+
+.attendance-summary-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.attendance-week-list {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.attendance-week-item {
+  padding: 0.85rem 0.95rem;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #fbfefc 0%, #f4fbf7 100%);
+  border: 1px solid rgba(26,122,63,0.07);
+}
+
+.attendance-week-item-featured {
+  background: linear-gradient(180deg, #f1faf4 0%, #eaf7ef 100%);
+  border-color: rgba(26,122,63,0.11);
+}
+
+.attendance-week-item-compact {
+  padding-top: 0.72rem;
+  padding-bottom: 0.72rem;
+}
+
+.attendance-summary-alert {
+  margin-bottom: 0;
+}
+
+.attendance-insights-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.attendance-insight-card {
+  padding: 1rem;
+  border-radius: 15px;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fdf9 100%);
+  border: 1px solid rgba(26,122,63,0.08);
+  box-shadow: 0 3px 12px rgba(10,92,46,0.04);
+}
+
+.attendance-insight-label {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-light);
+}
+
+.attendance-insight-card strong {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--green-dark);
+}
+
+.attendance-insight-card small {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: var(--text-light);
+}
+
+@media (max-width: 991px) {
+  .attendance-insights-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ================================================================
+   23C. ATTENDANCE UPLOAD CARD ENHANCEMENTS
+   Scoped only to the DTR upload area on the Attendance page.
+   ================================================================ */
+.attendance-upload-extras {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+  margin-top: 1rem;
+}
+
+.attendance-upload-extra-card {
+  padding: 1rem;
+  border-radius: 16px;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fdf9 100%);
+  border: 1px solid rgba(26,122,63,0.08);
+  box-shadow: 0 3px 12px rgba(10,92,46,0.04);
+}
+
+.attendance-upload-extra-card-accent {
+  background: linear-gradient(180deg, #f7fcf8 0%, #eef8f1 100%);
+}
+
+.attendance-upload-extra-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  margin-bottom: 0.85rem;
+}
+
+.attendance-upload-extra-head i {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(26,122,63,0.10);
+  color: var(--green-main);
+  font-size: 0.92rem;
+}
+
+.attendance-upload-extra-head strong {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: var(--green-dark);
+}
+
+.attendance-upload-extra-head span {
+  display: block;
+  margin-top: 0.12rem;
+  font-size: 0.76rem;
+  color: var(--text-light);
+}
+
+.attendance-upload-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.attendance-upload-checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--text-mid);
+}
+
+.attendance-upload-checklist li i {
+  margin-top: 0.1rem;
+  color: var(--green-main);
+}
+
+.attendance-upload-draft-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.7rem;
+}
+
+.attendance-upload-stat {
+  padding: 0.75rem 0.8rem;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.78);
+  border: 1px solid rgba(26,122,63,0.08);
+}
+
+.attendance-upload-stat-label {
+  display: block;
+  margin-bottom: 0.2rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-light);
+}
+
+.attendance-upload-stat strong {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 800;
+  line-height: 1.35;
+  color: var(--green-dark);
+}
+
+@media (max-width: 991px) {
+  .attendance-upload-extras,
+  .attendance-upload-draft-grid {
+    grid-template-columns: 1fr;
   }
 }
