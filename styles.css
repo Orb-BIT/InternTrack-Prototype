@@ -1300,12 +1300,6 @@ textarea.form-control { min-height: auto; }
 .monitoring-card-head p,
 .monitoring-meta { margin: 0; font-size: .84rem; color: var(--text-light); line-height: 1.5; }
 
-.completion-summary-badge {
-  white-space: nowrap;
-  writing-mode: horizontal-tb;
-  flex-shrink: 0;
-}
-
 .chart-wrap { padding: .3rem .05rem 0; }
 #hoursChart { width: 100%; max-height: 280px; display: block; }
 
@@ -4948,144 +4942,308 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
   }
 }
 
+
 /* ================================================================
-   23. ATTENDANCE PAGE HERO
-   Scoped only to the attendance header card.
+   21. RESPONSIVE POLISH PATCH — safe mobile/tablet improvements
+   Keeps the existing visual system while improving usability on
+   smaller screens without changing desktop layout.
    ================================================================ */
-.attendance-hero-card {
-  position: relative;
-  overflow: hidden;
-  padding: 1.55rem 1.9rem;
-  border: 1px solid rgba(255,255,255,0.08);
-  background:
-    radial-gradient(circle at 88% 18%, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0) 32%),
-    radial-gradient(circle at 12% 100%, rgba(8,63,32,0.30) 0%, rgba(8,63,32,0) 44%),
-    linear-gradient(135deg, #0f6a35 0%, #177a38 52%, #1a7a3f 100%);
-  box-shadow: 0 16px 36px rgba(10,92,46,0.16);
-}
-
-.attendance-hero-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0) 26%);
-  pointer-events: none;
-}
-
-.attendance-hero-card::after {
-  content: "";
-  position: absolute;
-  right: -52px;
-  top: -52px;
-  width: 190px;
-  height: 190px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255,255,255,0.14) 0%, rgba(255,255,255,0) 68%);
-  pointer-events: none;
-}
-
-.attendance-hero-row {
-  position: relative;
-  z-index: 1;
-}
-
-.attendance-hero-title-row {
+.topbar-title {
   display: flex;
   align-items: center;
-  gap: 0.9rem;
+  gap: .65rem;
+  min-width: 0;
 }
 
-.attendance-hero-icon {
-  width: 52px;
-  height: 52px;
-  border-radius: 15px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  color: #ffffff;
-  background: linear-gradient(180deg, rgba(255,255,255,0.20) 0%, rgba(255,255,255,0.10) 100%);
-  border: 1px solid rgba(255,255,255,0.16);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.10);
-  font-size: 1.1rem;
+.topbar-title > i,
+.coord-topbar-left > i {
+  flex: 0 0 auto;
 }
 
-.attendance-hero-title {
-  margin: 0;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.85rem;
-  font-weight: 800;
-  line-height: 1.08;
-  letter-spacing: -0.03em;
-  color: #ffffff;
+.table-responsive,
+.supervision-scroll,
+.evaluation-table-panel {
+  -webkit-overflow-scrolling: touch;
 }
 
-.attendance-hero-text {
-  margin: 0.38rem 0 0;
-  max-width: 760px;
-  font-size: 0.92rem;
-  line-height: 1.6;
-  color: rgba(255,255,255,0.82);
+.evaluation-table-panel {
+  overflow-x: auto;
 }
 
-.attendance-hero-pill {
-  min-width: 188px;
-  padding: 0.72rem 1rem;
-  border-radius: 18px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.12rem;
-  background: linear-gradient(180deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.12) 100%);
-  border: 1px solid rgba(255,255,255,0.16);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  text-align: center;
+img,
+canvas {
+  max-width: 100%;
 }
 
-.attendance-hero-pill-label {
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.70);
-}
-
-.attendance-hero-pill strong {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.98rem;
-  font-weight: 800;
-  letter-spacing: 0.02em;
-  color: #ffffff;
-}
-
-@media (max-width: 767px) {
-  .attendance-hero-card {
-    padding: 1.25rem 1.15rem;
+@media (max-width: 991px) {
+  .sidebar {
+    transform: translateX(-100%);
+    width: min(86vw, 320px);
+    box-shadow: 18px 0 46px rgba(10,92,46,.24);
   }
 
-  .attendance-hero-title-row {
+  .topbar,
+  .main-content,
+  .coord-topbar {
+    margin-left: 0;
+  }
+
+  .btn-hamburger {
+    display: inline-flex;
+    flex: 0 0 auto;
+  }
+
+  .topbar {
+    padding: .9rem 1rem;
+    gap: .85rem;
+  }
+
+  .topbar-title {
+    flex: 1 1 auto;
+    min-width: 0;
+    font-size: 1rem;
+    line-height: 1.2;
+  }
+
+  .topbar-right {
+    gap: .65rem;
+    margin-left: auto;
+    flex: 0 0 auto;
+  }
+
+  .main-content {
+    padding: 1.15rem;
+  }
+
+  .content-card,
+  .stat-card {
+    border-radius: 18px;
+  }
+
+  .dashboard-shell,
+  .evaluation-page .page-shell {
+    max-width: 100%;
+  }
+
+  .dashboard-hero {
+    padding: 1.3rem 1.2rem;
+  }
+
+  .dashboard-hero-title {
+    font-size: 1.45rem;
+    line-height: 1.2;
+  }
+
+  .dashboard-hero-meta {
+    word-break: break-word;
+  }
+
+  .hero-chip-group,
+  .monitoring-card-head,
+  .evaluation-panel-header,
+  .content-card-header {
+    justify-content: flex-start;
+  }
+
+  .monitoring-card-head,
+  .evaluation-panel-header,
+  .content-card-header {
+    flex-direction: column;
     align-items: flex-start;
   }
 
-  .attendance-hero-icon {
-    width: 46px;
-    height: 46px;
-    border-radius: 13px;
+  .monitoring-card-head .badge-status,
+  .evaluation-panel-header .hero-chip,
+  .evaluation-panel-header .badge-status {
+    align-self: flex-start;
   }
 
-  .attendance-hero-title {
-    font-size: 1.35rem;
+  .supervision-table {
+    min-width: 820px;
   }
 
-  .attendance-hero-text {
-    font-size: 0.84rem;
+  .evaluation-table {
+    min-width: 820px;
+  }
+}
+
+@media (max-width: 767px) {
+  .topbar {
+    padding: .8rem .9rem;
+    gap: .7rem;
   }
 
-  .attendance-hero-pill {
-    width: 100%;
-    min-width: 0;
+  .topbar-title {
+    font-size: .96rem;
+  }
+
+  .topbar-right > span {
+    display: none;
+  }
+
+  .topbar-avatar {
+    width: 34px;
+    height: 34px;
+    font-size: .78rem;
+  }
+
+  .main-content {
+    padding: .95rem;
+  }
+
+  .content-card {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .stat-card {
+    min-height: 0;
+    padding: 1rem;
+    gap: .8rem;
+    align-items: flex-start;
+  }
+
+  .stat-icon {
+    width: 42px;
+    height: 42px;
+    font-size: 1rem;
+  }
+
+  .stat-value {
+    font-size: 1.3rem;
+  }
+
+  .dashboard-hero {
+    padding: 1.1rem 1rem;
+  }
+
+  .dashboard-kicker {
+    letter-spacing: 1.4px;
+  }
+
+  .dashboard-hero-title {
+    font-size: 1.25rem;
+  }
+
+  .dashboard-hero-meta {
+    font-size: .8rem;
+    line-height: 1.5;
+  }
+
+  .hero-chip-group {
+    gap: .45rem;
+  }
+
+  .monitoring-card {
+    padding: 1rem;
+  }
+
+  .monitoring-card-head h6,
+  .content-card-header h6,
+  .evaluation-header-copy h6 {
+    font-size: .92rem;
+  }
+
+  .program-row {
+    align-items: flex-start;
+    gap: .6rem;
+  }
+
+  .program-row span {
+    line-height: 1.4;
+  }
+
+  .evaluation-table-panel {
+    padding: 1rem;
+  }
+
+  .evaluation-table .btn-outline-green,
+  .evaluation-table .btn-green {
+    min-width: 132px;
+    padding-inline: 1rem;
+  }
+}
+
+@media (max-width: 575px) {
+  .topbar {
+    padding: .78rem .82rem;
+  }
+
+  .topbar-title {
+    font-size: .92rem;
+    gap: .55rem;
+  }
+
+  .btn-hamburger {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+  }
+
+  .main-content {
+    padding: .82rem;
+  }
+
+  .content-card,
+  .stat-card {
+    border-radius: 16px;
+  }
+
+  .content-card {
+    padding: .92rem;
+  }
+
+  .dashboard-hero {
+    padding: 1rem .92rem;
+  }
+
+  .dashboard-hero-title {
+    font-size: 1.12rem;
+  }
+
+  .dashboard-hero-meta {
+    font-size: .77rem;
+  }
+
+  .hero-chip,
+  .badge-status {
+    white-space: nowrap;
+  }
+
+  .evaluation-table {
+    min-width: 760px;
+  }
+
+  .supervision-table {
+    min-width: 760px;
+  }
+}
+
+@media (max-width: 420px) {
+  .topbar {
+    padding: .72rem .72rem;
+  }
+
+  .topbar-title {
+    font-size: .88rem;
+  }
+
+  .main-content {
+    padding: .72rem;
+  }
+
+  .content-card,
+  .stat-card {
+    padding: .86rem;
+  }
+
+  .dashboard-hero-title {
+    font-size: 1.02rem;
+  }
+
+  .dashboard-hero-meta,
+  .panel-subtitle,
+  .monitoring-card-head p {
+    font-size: .74rem;
   }
 }

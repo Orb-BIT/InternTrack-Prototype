@@ -72,6 +72,7 @@ function initApp() {
   protectRoute();
   applyRoleTheme();
   renderRoleSidebar();
+  ensureResponsiveSidebarToggle();
   initSidebarState();
   applyUserProfile();
   initLogoutLinks();
@@ -386,6 +387,32 @@ function applyCoordinatorSettingsCopy() {
   coordOnly.forEach((el) => el.classList.remove('d-none'));
 }
 
+
+function ensureResponsiveSidebarToggle() {
+  const sidebar = document.querySelector('.sidebar');
+  if (!sidebar || document.getElementById('sidebarToggle')) return;
+
+  const topbarTitle = document.querySelector('.topbar .topbar-title');
+  const coordTopbarLeft = document.querySelector('.coord-topbar .coord-topbar-left');
+
+  const btn = document.createElement('button');
+  btn.type = 'button';
+  btn.id = 'sidebarToggle';
+  btn.className = 'btn-hamburger';
+  btn.setAttribute('aria-label', 'Open navigation menu');
+  btn.setAttribute('aria-expanded', 'false');
+  btn.innerHTML = '<i class="fa fa-bars"></i>';
+
+  if (topbarTitle) {
+    topbarTitle.prepend(btn);
+    return;
+  }
+
+  if (coordTopbarLeft) {
+    coordTopbarLeft.prepend(btn);
+  }
+}
+
 function initSidebarState() {
   const links = document.querySelectorAll('.sidebar-link');
   const current = getCurrentPage();
@@ -408,10 +435,19 @@ function initSidebarState() {
     document.body.appendChild(overlay);
   }
 
-  const closeSidebar = () => document.body.classList.remove('sidebar-open');
+  const setToggleState = (isOpen) => {
+    toggle.setAttribute('aria-expanded', String(isOpen));
+  };
+
+  const closeSidebar = () => {
+    document.body.classList.remove('sidebar-open');
+    setToggleState(false);
+  };
+
   const openSidebar = () => {
     if (window.innerWidth <= 991) {
       document.body.classList.add('sidebar-open');
+      setToggleState(true);
     }
   };
 
@@ -420,7 +456,9 @@ function initSidebarState() {
     toggle.addEventListener('click', (e) => {
       e.preventDefault();
       if (window.innerWidth > 991) return;
+      const nextIsOpen = !document.body.classList.contains('sidebar-open');
       document.body.classList.toggle('sidebar-open');
+      setToggleState(nextIsOpen);
     });
   }
 
@@ -475,7 +513,7 @@ function attachModalButtonEffects(btn) {
   if (!btn) return;
 
   btn.addEventListener('mouseenter', () => {
-    btn.style.transform = 'translateY(-2px)';
+    btn.style.transform = 'translateY(-1px)';
   });
 
   btn.addEventListener('mouseleave', () => {
@@ -487,7 +525,7 @@ function attachModalButtonEffects(btn) {
   });
 
   btn.addEventListener('mouseup', () => {
-    btn.style.transform = 'translateY(-2px) scale(1)';
+    btn.style.transform = 'translateY(-1px) scale(1)';
   });
 }
 
@@ -500,120 +538,102 @@ function showLogoutConfirm(onConfirm) {
     overlay.style.cssText = `
       position: fixed;
       inset: 0;
+      background: rgba(0, 0, 0, 0.22);
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 1.25rem;
-      background: rgba(15, 23, 20, 0.18);
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
       z-index: 10000;
       opacity: 0;
       visibility: hidden;
       pointer-events: none;
-      transition: opacity .28s ease, visibility .28s ease, background .28s ease;
-      box-sizing: border-box;
+      transition: opacity .28s ease, background .28s ease, visibility .28s ease;
+      padding: 1rem;
+      backdrop-filter: blur(3px);
+      -webkit-backdrop-filter: blur(3px);
     `;
 
     const modal = document.createElement('div');
     modal.style.cssText = `
-      width: min(100%, 430px);
-      background: linear-gradient(180deg, #ffffff 0%, #f8fbf9 100%);
-      border: 1px solid rgba(16, 102, 56, 0.10);
-      border-radius: 22px;
-      box-shadow: 0 24px 60px rgba(16, 24, 20, 0.18);
-      padding: 1.9rem 1.6rem 1.45rem;
+      width: 100%;
+      max-width: 380px;
+      background: linear-gradient(135deg, #ffffff 0%, #f7fbf8 100%);
+      border: 1px solid rgba(10, 92, 46, 0.14);
+      border-radius: 18px;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.18);
+      padding: 1.4rem 1.25rem 1.15rem;
       text-align: center;
-      font-family: inherit;
-      transform: translateY(18px) scale(0.96);
+      transform: translateY(14px) scale(0.96);
       opacity: 0;
       transition: transform .3s cubic-bezier(0.22, 1, 0.36, 1), opacity .3s ease;
-      box-sizing: border-box;
+      font-family: inherit;
     `;
 
     modal.innerHTML = `
       <div style="
-        width: 76px;
-        height: 76px;
-        margin: 0 auto 1rem;
+        width: 56px;
+        height: 56px;
+        margin: 0 auto 0.9rem;
         border-radius: 50%;
-        background: linear-gradient(135deg, rgba(20, 123, 61, 0.12) 0%, rgba(20, 123, 61, 0.18) 100%);
+        background: rgba(10, 92, 46, 0.10);
+        color: #0a5c2e;
         display: flex;
         align-items: center;
         justify-content: center;
-        box-shadow: inset 0 1px 0 rgba(255,255,255,0.65);
+        font-size: 1.3rem;
       ">
-        <i class="fa fa-sign-out-alt" style="
-          font-size: 1.55rem;
-          color: #147b3d;
-        "></i>
+        <i class="fa fa-sign-out-alt"></i>
       </div>
 
       <div style="
-        font-size: 1.65rem;
-        font-weight: 800;
-        line-height: 1.2;
+        font-size: 1.02rem;
+        font-weight: 700;
         color: #163020;
-        margin-bottom: 0.7rem;
-        letter-spacing: -0.02em;
+        margin-bottom: 0.45rem;
       ">
-        Ready to log out?
+        Log out of your account?
       </div>
 
       <div style="
-        max-width: 320px;
-        margin: 0 auto 1.5rem;
-        font-size: 1rem;
-        line-height: 1.65;
-        color: #6a8273;
+        font-size: 0.88rem;
+        line-height: 1.5;
+        color: #557564;
+        margin-bottom: 1.15rem;
       ">
-        You will be returned to the sign-in page. Any unsaved changes from this session may be lost.
+        Are you sure you want to log out?
       </div>
 
       <div style="
         display: flex;
+        gap: 0.75rem;
         justify-content: center;
-        align-items: center;
-        gap: 0.85rem;
-        flex-wrap: wrap;
-        width: 100%;
       ">
         <button type="button" id="logoutCancelBtn" style="
-          min-width: 138px;
-          height: 48px;
-          padding: 0 1.2rem;
-          border: 1px solid #d6e6da;
+          min-width: 120px;
+          border: 1px solid #d7e6db;
           background: #ffffff;
-          color: #2b4a39;
-          border-radius: 14px;
-          font-size: 0.98rem;
+          color: #2f4f3e;
+          border-radius: 12px;
+          padding: 0.72rem 1rem;
+          font-size: 0.88rem;
           font-weight: 700;
           cursor: pointer;
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
-          box-shadow: 0 6px 18px rgba(16, 24, 20, 0.05);
+          transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
         ">
-          Stay Logged In
+          Cancel
         </button>
 
         <button type="button" id="logoutConfirmBtn" style="
-          min-width: 138px;
-          height: 48px;
-          padding: 0 1.2rem;
+          min-width: 120px;
           border: none;
-          background: linear-gradient(135deg, #0f7a3a 0%, #0b5f2d 100%);
+          background: linear-gradient(135deg, #0a5c2e 0%, #1a7a3f 100%);
           color: #ffffff;
-          border-radius: 14px;
-          font-size: 0.98rem;
-          font-weight: 800;
+          border-radius: 12px;
+          padding: 0.72rem 1rem;
+          font-size: 0.88rem;
+          font-weight: 700;
           cursor: pointer;
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
+          box-shadow: 0 10px 22px rgba(10, 92, 46, 0.22);
           transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
-          box-shadow: 0 14px 28px rgba(15, 122, 58, 0.24);
         ">
           Log Out
         </button>
@@ -657,15 +677,11 @@ function showLogoutConfirm(onConfirm) {
 
   requestAnimationFrame(() => {
     overlay.style.opacity = '1';
-    overlay.style.background = 'rgba(15, 23, 20, 0.28)';
-
+    overlay.style.background = 'rgba(0, 0, 0, 0.32)';
     if (modal) {
       modal.style.opacity = '1';
       modal.style.transform = 'translateY(0) scale(1)';
     }
-
-    const cancelBtn = overlay.querySelector('#logoutCancelBtn');
-    if (cancelBtn) cancelBtn.focus();
   });
 }
 
@@ -676,12 +692,12 @@ function closeLogoutConfirm() {
   const modal = overlay.firstElementChild;
 
   overlay.style.opacity = '0';
-  overlay.style.background = 'rgba(15, 23, 20, 0.18)';
+  overlay.style.background = 'rgba(0, 0, 0, 0.22)';
   overlay.style.pointerEvents = 'none';
 
   if (modal) {
     modal.style.opacity = '0';
-    modal.style.transform = 'translateY(16px) scale(0.96)';
+    modal.style.transform = 'translateY(12px) scale(0.97)';
   }
 
   setTimeout(() => {
