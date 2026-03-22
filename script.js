@@ -72,7 +72,6 @@ function initApp() {
   protectRoute();
   applyRoleTheme();
   renderRoleSidebar();
-  ensureResponsiveSidebarToggle();
   initSidebarState();
   applyUserProfile();
   initLogoutLinks();
@@ -387,32 +386,6 @@ function applyCoordinatorSettingsCopy() {
   coordOnly.forEach((el) => el.classList.remove('d-none'));
 }
 
-
-function ensureResponsiveSidebarToggle() {
-  const sidebar = document.querySelector('.sidebar');
-  if (!sidebar || document.getElementById('sidebarToggle')) return;
-
-  const topbarTitle = document.querySelector('.topbar .topbar-title');
-  const coordTopbarLeft = document.querySelector('.coord-topbar .coord-topbar-left');
-
-  const btn = document.createElement('button');
-  btn.type = 'button';
-  btn.id = 'sidebarToggle';
-  btn.className = 'btn-hamburger';
-  btn.setAttribute('aria-label', 'Open navigation menu');
-  btn.setAttribute('aria-expanded', 'false');
-  btn.innerHTML = '<i class="fa fa-bars"></i>';
-
-  if (topbarTitle) {
-    topbarTitle.prepend(btn);
-    return;
-  }
-
-  if (coordTopbarLeft) {
-    coordTopbarLeft.prepend(btn);
-  }
-}
-
 function initSidebarState() {
   const links = document.querySelectorAll('.sidebar-link');
   const current = getCurrentPage();
@@ -435,19 +408,10 @@ function initSidebarState() {
     document.body.appendChild(overlay);
   }
 
-  const setToggleState = (isOpen) => {
-    toggle.setAttribute('aria-expanded', String(isOpen));
-  };
-
-  const closeSidebar = () => {
-    document.body.classList.remove('sidebar-open');
-    setToggleState(false);
-  };
-
+  const closeSidebar = () => document.body.classList.remove('sidebar-open');
   const openSidebar = () => {
     if (window.innerWidth <= 991) {
       document.body.classList.add('sidebar-open');
-      setToggleState(true);
     }
   };
 
@@ -456,9 +420,7 @@ function initSidebarState() {
     toggle.addEventListener('click', (e) => {
       e.preventDefault();
       if (window.innerWidth > 991) return;
-      const nextIsOpen = !document.body.classList.contains('sidebar-open');
       document.body.classList.toggle('sidebar-open');
-      setToggleState(nextIsOpen);
     });
   }
 
