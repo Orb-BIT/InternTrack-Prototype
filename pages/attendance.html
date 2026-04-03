@@ -3,13 +3,12 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Dashboard – INTERNTRACK</title>
+  <title>Attendance – INTERNTRACK</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-  <link rel="stylesheet" href="styles.css"/>
+  <link rel="stylesheet" href="../assets/css/styles.css"/>
 </head>
 <body class="page-body">
-
 <!-- SIDEBAR -->
 <aside class="sidebar">
   <div class="sidebar-brand">
@@ -21,336 +20,410 @@
   </div>
   <nav class="sidebar-nav">
     <div class="nav-section-label">Main</div>
-    <a href="dashboard.html" class="sidebar-link active"><i class="fa fa-tachometer-alt"></i> Dashboard</a>
-    <a href="records.html"   class="sidebar-link"><i class="fa fa-folder-open"></i> Student Records</a>
-        <div class="nav-section-label">Tools</div>
-    <a href="attendance.html" class="sidebar-link"><i class="fa fa-calendar-check"></i> Attendance</a>
+    <a href="dashboard.html" class="sidebar-link"><i class="fa fa-tachometer-alt"></i> Dashboard</a>
+    <a href="records.html" class="sidebar-link"><i class="fa fa-folder-open"></i> Student Records</a>
+    <div class="nav-section-label">Tools</div>
+    <a href="attendance.html" class="sidebar-link active"><i class="fa fa-calendar-check"></i> Attendance</a>
     <a href="logbook.html" class="sidebar-link"><i class="fa fa-book-open"></i> Logbook</a>
     <a href="documents.html" class="sidebar-link"><i class="fa fa-file-alt"></i> Documents</a>
     <a href="evaluations.html" class="sidebar-link"><i class="fa fa-star"></i> Evaluations</a>
     <div class="nav-section-label">Account</div>
     <a href="settings.html" class="sidebar-link"><i class="fa fa-cog"></i> Settings</a>
-    <a href="index.html" class="sidebar-link"><i class="fa fa-sign-out-alt"></i> Logout</a>
+    <a href="index_single_role.html" class="sidebar-link"><i class="fa fa-sign-out-alt"></i> Logout</a>
   </nav>
 </aside>
-
-<!-- TOPBAR -->
 <header class="topbar">
-  <div class="topbar-title"><i class="fa fa-tachometer-alt me-2" style="color:var(--green-main)"></i>Dashboard</div>
+  <div class="topbar-title"><i class="fa fa-calendar-check me-2" style="color:var(--green-main)"></i>Attendance</div>
   <div class="topbar-right">
     <span style="font-size:.78rem;color:var(--text-light)">AY 2024–2025, Sem 2</span>
     <div class="topbar-avatar">JS</div>
   </div>
 </header>
-
-<!-- MAIN CONTENT -->
 <main class="main-content">
-  <div class="dashboard-shell">
 
-  <div class="content-card dashboard-hero mb-4">
-    <div class="row align-items-center g-3">
-      <div class="col-lg">
-        <div class="dashboard-kicker">Internship Dashboard</div>
-        <h4 class="dashboard-hero-title">Welcome back, Juan dela Cruz</h4>
-        <p class="dashboard-hero-meta">BSInfoTech 4-A &nbsp;|&nbsp; Student No. 2021-00123 &nbsp;|&nbsp; TechCorp PH</p>
-      </div>
-      <div class="col-lg-auto">
-        <div class="hero-chip-group">
-          <span class="hero-chip">Ongoing Internship</span>
-          <span class="hero-chip hero-chip-muted">AY 2024–2025, Sem 2</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row g-3 mb-4">
-    <div class="col-sm-6 col-xl-3">
-      <div class="stat-card">
-        <div class="stat-icon green"><i class="fa fa-clock"></i></div>
-        <div>
-          <div class="stat-value">312</div>
-          <div class="stat-label">Hours Rendered</div>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 col-xl-3">
-      <div class="stat-card" style="border-left-color:#0d8e80">
-        <div class="stat-icon teal"><i class="fa fa-calendar-check"></i></div>
-        <div>
-          <div class="stat-value">48</div>
-          <div class="stat-label">Days Present</div>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 col-xl-3">
-      <div class="stat-card" style="border-left-color:#d4a017">
-        <div class="stat-icon amber"><i class="fa fa-book-open"></i></div>
-        <div>
-          <div class="stat-value">10</div>
-          <div class="stat-label">Journal Entries</div>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 col-xl-3">
-      <div class="stat-card" style="border-left-color:#1a73e8">
-        <div class="stat-icon blue"><i class="fa fa-file-alt"></i></div>
-        <div>
-          <div class="stat-value">7/9</div>
-          <div class="stat-label">Docs Submitted</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row g-3 mb-4">
-    <div class="col-lg-7">
-      <div class="content-card h-100">
-        <div class="content-card-header">
-          <i class="fa fa-bolt"></i>
-          <h6>Quick Overview</h6>
-        </div>
-        <div class="overview-grid">
-          <div class="overview-block">
-            <span class="overview-label">Completed Hours</span>
-            <div class="overview-value-row"><strong>312 / 500 hrs</strong><span>62%</span></div>
-            <div class="progress-track mb-3"><div class="progress-fill" data-width="62" style="width:62%"></div></div>
-          </div>
-          <div class="overview-block">
-            <span class="overview-label">Document Compliance</span>
-            <div class="overview-value-row"><strong>78%</strong><span>7 of 9 files</span></div>
-            <div class="progress-track mb-3"><div class="progress-fill" data-width="78" style="width:78%;background:linear-gradient(90deg,#0d8e80,#4bc97a)"></div></div>
-          </div>
-          <div class="overview-block">
-            <span class="overview-label">Evaluation Score</span>
-            <div class="overview-value-row"><strong>88 / 100</strong><span>Very Good</span></div>
-            <div class="progress-track"><div class="progress-fill" data-width="88" style="width:88%;background:linear-gradient(90deg,#d4a017,#f4c842)"></div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-5">
-      <div class="content-card h-100">
-        <div class="content-card-header">
-          <i class="fa fa-bell"></i>
-          <h6>Announcements</h6>
-        </div>
-        <div class="announcement-stack">
-          <div class="announcement-item">
-            <div class="announcement-icon"><i class="fa fa-file-upload"></i></div>
-            <div><strong>Final Report Deadline</strong><p>Submit your final internship report by June 30, 2025.</p></div>
-          </div>
-          <div class="announcement-item warning">
-            <div class="announcement-icon"><i class="fa fa-exclamation-triangle"></i></div>
-            <div><strong>Midterm Evaluation</strong><p>Supervisor signature is still required before approval.</p></div>
-          </div>
-          <div class="announcement-item info">
-            <div class="announcement-icon"><i class="fa fa-info-circle"></i></div>
-            <div><strong>Coordinator Update</strong><p>Latest orientation notes are now available in the logbook section.</p></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="content-card recent-activity-card mb-4">
-    <div class="content-card-header">
-      <i class="fa fa-history"></i>
-      <h6>Recent Activity</h6>
-    </div>
-    <div class="table-card table-card-soft">
-      <div class="table-responsive">
-        <table class="table table-hover align-middle mb-0 recent-activity-table">
-          <thead>
-            <tr>
-              <th>Date</th>
-              <th>Activity</th>
-              <th>Type</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>June 20, 2025</td>
-              <td>DTR Upload – Week 8</td>
-              <td>Attendance</td>
-              <td><span class="badge-status badge-active">Validated</span></td>
-            </tr>
-            <tr>
-              <td>June 18, 2025</td>
-              <td>Journal Entry #10</td>
-              <td>Logbook</td>
-              <td><span class="badge-status badge-completed">Submitted</span></td>
-            </tr>
-            <tr>
-              <td>June 15, 2025</td>
-              <td>Endorsement Letter</td>
-              <td>Document</td>
-              <td><span class="badge-status badge-pending">Pending</span></td>
-            </tr>
-            <tr>
-              <td>June 12, 2025</td>
-              <td>DTR Upload – Week 7</td>
-              <td>Attendance</td>
-              <td><span class="badge-status badge-active">Validated</span></td>
-            </tr>
-            <tr>
-              <td>June 08, 2025</td>
-              <td>Midterm Evaluation Form</td>
-              <td>Evaluation</td>
-              <td><span class="badge-status badge-overdue">Overdue</span></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-
-  <section id="monitoring-section" class="monitoring-section">
-    <div class="section-header monitoring-header">
-      <div>
-        <div class="section-title">Dashboard Monitoring</div>
-        <p class="monitoring-subtitle">Weekly performance, program completion, and supervision updates in one view.</p>
-      </div>
-    </div>
-
-    <div class="monitoring-grid">
-      <div class="content-card monitoring-card chart-panel">
-        <div class="monitoring-card-head">
+<div class="content-card mb-4 attendance-hero-card">
+  <div class="row align-items-center g-3 attendance-hero-row">
+    <div class="col">
+      <div class="attendance-hero-copy">
+        <div class="attendance-hero-title-row">
+          <span class="attendance-hero-icon" aria-hidden="true"><i class="fa fa-calendar-check"></i></span>
           <div>
-            <h6>Weekly OJT Hours</h6>
-            <p>Dashboard view with a 20 hrs/week target baseline</p>
-          </div>
-          <div class="monitoring-meta">Target: 20 hrs/week</div>
-        </div>
-        <div class="chart-wrap">
-          <canvas id="hoursChart" width="880" height="300"></canvas>
-        </div>
-      </div>
-
-      <div class="content-card monitoring-card completion-panel">
-        <div class="monitoring-card-head compact-head">
-          <div>
-            <h6>Completion by Program</h6>
-            <p>Current internship completion progress across active programs</p>
-          </div>
-          <span class="badge-status badge-active completion-summary-badge">Live Summary</span>
-        </div>
-        <div class="program-list">
-          <div class="program-item">
-            <div class="program-row"><span>BS Information Technology</span><strong>68%</strong></div>
-            <div class="progress-track progress-track-thick"><div class="progress-fill" data-width="68" style="width:68%"></div></div>
-          </div>
-          <div class="program-item">
-            <div class="program-row"><span>BS Computer Science</span><strong>75%</strong></div>
-            <div class="progress-track progress-track-thick"><div class="progress-fill" data-width="75" style="width:75%;background:linear-gradient(90deg,#1a7a3f,#55c77b)"></div></div>
-          </div>
-          <div class="program-item">
-            <div class="program-row"><span>BS Business Administration</span><strong>55%</strong></div>
-            <div class="progress-track progress-track-thick"><div class="progress-fill" data-width="55" style="width:55%;background:linear-gradient(90deg,#d4a017,#f2c550)"></div></div>
-          </div>
-          <div class="program-item">
-            <div class="program-row"><span>BS Nursing</span><strong>82%</strong></div>
-            <div class="progress-track progress-track-thick"><div class="progress-fill" data-width="82" style="width:82%;background:linear-gradient(90deg,#3477db,#6ba1f0)"></div></div>
+            <h5 class="attendance-hero-title">Attendance Monitoring</h5>
+            <p class="attendance-hero-text">Track daily time records, weekly attendance validation, and rendered internship hours.</p>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</div>
 
-      <div class="content-card monitoring-card checkpoints-panel">
-        <div class="monitoring-card-head compact-head">
-          <div>
-            <h6>Supervisor Checkpoints</h6>
-            <p>Recent review milestones and coordinator follow-up items</p>
-          </div>
-          <span class="badge-status badge-pending">In Progress</span>
-        </div>
-        <div class="checkpoint-list">
-          <div class="checkpoint-item done">
+<div class="row g-3 mb-4">
+  <div class="col-sm-6 col-xl-3"><div class="stat-card"><div class="stat-icon green"><i class="fa fa-calendar-check"></i></div><div><div class="stat-value">48</div><div class="stat-label">Validated Days</div></div></div></div>
+  <div class="col-sm-6 col-xl-3"><div class="stat-card" style="border-left-color:#0d8e80"><div class="stat-icon teal"><i class="fa fa-business-time"></i></div><div><div class="stat-value">312</div><div class="stat-label">Hours Logged</div></div></div></div>
+  <div class="col-sm-6 col-xl-3"><div class="stat-card" style="border-left-color:#d4a017"><div class="stat-icon amber"><i class="fa fa-file-circle-check"></i></div><div><div class="stat-value">8</div><div class="stat-label">DTR Uploads</div></div></div></div>
+  <div class="col-sm-6 col-xl-3"><div class="stat-card" style="border-left-color:#1a73e8"><div class="stat-icon blue"><i class="fa fa-hourglass-half"></i></div><div><div class="stat-value">188</div><div class="stat-label">Hours Remaining</div></div></div></div>
+</div>
+
+<div class="row g-3 mb-4">
+  <div class="col-lg-5">
+    <div class="content-card h-100">
+      <div class="content-card-header"><i class="fa fa-clock"></i><h6>Log Daily Attendance</h6></div>
+      <table class="table table-sm table-bordered mb-3" style="font-size:.82rem">
+        <thead><tr><th>Day</th><th>Time In</th><th>Time Out</th><th>Hours</th></tr></thead>
+        <tbody>
+          <tr><td>Monday</td><td><input class="form-control form-control-sm" type="time"></td><td><input class="form-control form-control-sm" type="time"></td><td class="align-middle text-center">—</td></tr>
+          <tr><td>Tuesday</td><td><input class="form-control form-control-sm" type="time"></td><td><input class="form-control form-control-sm" type="time"></td><td class="align-middle text-center">—</td></tr>
+          <tr><td>Wednesday</td><td><input class="form-control form-control-sm" type="time"></td><td><input class="form-control form-control-sm" type="time"></td><td class="align-middle text-center">—</td></tr>
+          <tr><td>Thursday</td><td><input class="form-control form-control-sm" type="time"></td><td><input class="form-control form-control-sm" type="time"></td><td class="align-middle text-center">—</td></tr>
+          <tr><td>Friday</td><td><input class="form-control form-control-sm" type="time"></td><td><input class="form-control form-control-sm" type="time"></td><td class="align-middle text-center">—</td></tr>
+        </tbody>
+      </table>
+      <div class="row g-3">
+        <div class="col-md-6"><label class="form-label form-label-subtle">Coverage From</label><input class="form-control" type="date" value="2025-06-16"></div>
+        <div class="col-md-6"><label class="form-label form-label-subtle">Coverage To</label><input class="form-control" type="date" value="2025-06-20"></div>
+        <div class="col-12"><label class="form-label form-label-subtle">Supervisor Note</label><textarea class="form-control" rows="4" placeholder="Optional remarks for coordinator review..."></textarea></div>
+        <div class="col-12 d-flex gap-2"><button class="btn-green"><i class="fa fa-paper-plane me-1"></i>Submit DTR</button><button class="btn-outline-green">Save Draft</button></div>
+      </div>
+
+      <div class="attendance-upload-extras">
+        <div class="attendance-upload-extra-card">
+          <div class="attendance-upload-extra-head">
+            <i class="fa fa-list-check"></i>
             <div>
-              <strong>Week 6 Review</strong>
-              <p>Checked by Ms. Santos</p>
+              <strong>Submission checklist</strong>
+              <span>Quick review before submitting</span>
             </div>
-            <span class="badge-status badge-active">Done</span>
           </div>
-          <div class="checkpoint-item pending">
-            <div>
-              <strong>Week 7 DTR Verification</strong>
-              <p>Awaiting signature</p>
-            </div>
-            <span class="badge-status badge-pending">Pending</span>
-          </div>
-          <div class="checkpoint-item action">
-            <div>
-              <strong>Midterm Evaluation</strong>
-              <p>Coordinator follow-up required</p>
-            </div>
-            <span class="badge-status badge-overdue">Action Needed</span>
-          </div>
+          <ul class="attendance-upload-checklist">
+            <li><i class="fa fa-circle-check"></i><span>All time entries are filled in correctly</span></li>
+            <li><i class="fa fa-circle-check"></i><span>Coverage dates match the logged week</span></li>
+            <li><i class="fa fa-circle-check"></i><span>Supervisor note includes review context if needed</span></li>
+          </ul>
         </div>
-      </div>
 
-      <div class="content-card monitoring-card table-panel">
-        <div class="monitoring-card-head compact-head">
-          <div>
-            <h6>Supervision Status</h6>
-            <p>Per-student visit status, document health, and weekly progress</p>
+        <div class="attendance-upload-extra-card attendance-upload-extra-card-accent">
+          <div class="attendance-upload-extra-head">
+            <i class="fa fa-folder-open"></i>
+            <div>
+              <strong>Current draft status</strong>
+              <span>Useful submission details</span>
+            </div>
           </div>
-          <span class="badge-status badge-active">Dashboard Table</span>
-        </div>
-        <div class="table-card table-card-soft">
-          <div class="table-responsive supervision-scroll">
-            <table class="table supervision-table align-middle mb-0">
-              <thead>
-                <tr>
-                  <th>Student</th>
-                  <th>Supervisor</th>
-                  <th>Last Visit</th>
-                  <th>Hours This Week</th>
-                  <th>Journal</th>
-                  <th>Docs</th>
-                  <th>Overall</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><div class="table-main">Juan dela Cruz</div><div class="table-sub">BS IT</div></td>
-                  <td><div class="table-main">Ms. Rivera</div><div class="table-sub">TechCorp PH</div></td>
-                  <td><div class="table-main">June 20</div><div class="table-sub">2025</div></td>
-                  <td><div class="table-main">30 hrs</div></td>
-                  <td><span class="badge-status badge-active">Up to date</span></td>
-                  <td><span class="badge-status badge-pending">2 Missing</span></td>
-                  <td><span class="badge-status badge-pending">Needs review</span></td>
-                </tr>
-                <tr>
-                  <td><div class="table-main">Maria Santos</div><div class="table-sub">BS CS</div></td>
-                  <td><div class="table-main">Mr. Lopez</div><div class="table-sub">Nexa Systems</div></td>
-                  <td><div class="table-main">June 22</div><div class="table-sub">2025</div></td>
-                  <td><div class="table-main">36 hrs</div></td>
-                  <td><span class="badge-status badge-active">Complete</span></td>
-                  <td><span class="badge-status badge-active">Complete</span></td>
-                  <td><span class="badge-status badge-active">On Track</span></td>
-                </tr>
-                <tr>
-                  <td><div class="table-main">Anne Reyes</div><div class="table-sub">BSBA</div></td>
-                  <td><div class="table-main">Ms. Dizon</div><div class="table-sub">PrimeCore</div></td>
-                  <td><div class="table-main">June 18</div><div class="table-sub">2025</div></td>
-                  <td><div class="table-main">18 hrs</div></td>
-                  <td><span class="badge-status badge-pending">Late</span></td>
-                  <td><span class="badge-status badge-overdue">Missing MOA</span></td>
-                  <td><span class="badge-status badge-overdue">At Risk</span></td>
-                </tr>
-              </tbody>
-            </table>
+          <div class="attendance-upload-draft-grid">
+            <div class="attendance-upload-stat">
+              <span class="attendance-upload-stat-label">Last saved</span>
+              <strong>Today, 2:14 PM</strong>
+            </div>
+            <div class="attendance-upload-stat">
+              <span class="attendance-upload-stat-label">Pending week</span>
+              <strong>Week 9</strong>
+            </div>
+            <div class="attendance-upload-stat">
+              <span class="attendance-upload-stat-label">Expected hours</span>
+              <strong>40 hrs</strong>
+            </div>
+            <div class="attendance-upload-stat">
+              <span class="attendance-upload-stat-label">Review target</span>
+              <strong>Coordinator</strong>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
-
   </div>
+  <div class="col-lg-7">
+    <div class="content-card h-100 attendance-summary-card">
+      <div class="content-card-header"><i class="fa fa-clock-rotate-left"></i><h6>Weekly Attendance Summary</h6></div>
+      <div class="attendance-summary-stack">
+        <div class="attendance-week-list">
+          <div class="attendance-week-item attendance-week-item-featured">
+            <div class="d-flex justify-content-between mb-1 attendance-meta"><span>Week 8</span><strong>40 / 40 hrs</strong></div>
+            <div class="progress-track"><div class="progress-fill" data-width="100" style="width:100%"></div></div>
+          </div>
+          <div class="attendance-week-item">
+            <div class="d-flex justify-content-between mb-1 attendance-meta"><span>Week 7</span><strong>38 / 40 hrs</strong></div>
+            <div class="progress-track"><div class="progress-fill" data-width="95" style="width:95%;background:linear-gradient(90deg,#0d8e80,#4bc97a)"></div></div>
+          </div>
+          <div class="attendance-week-item">
+            <div class="d-flex justify-content-between mb-1 attendance-meta"><span>Week 6</span><strong>36 / 40 hrs</strong></div>
+            <div class="progress-track"><div class="progress-fill" data-width="90" style="width:90%;background:linear-gradient(90deg,#1a73e8,#67a8ff)"></div></div>
+          </div>
+          <div class="attendance-week-item attendance-week-item-compact">
+            <div class="d-flex justify-content-between mb-1 attendance-meta"><span>Week 5</span><strong>34 / 40 hrs</strong></div>
+            <div class="progress-track"><div class="progress-fill" data-width="85" style="width:85%;background:linear-gradient(90deg,#d4a017,#f0c44d)"></div></div>
+          </div>
+          <div class="attendance-week-item attendance-week-item-compact">
+            <div class="d-flex justify-content-between mb-1 attendance-meta"><span>Week 4</span><strong>39 / 40 hrs</strong></div>
+            <div class="progress-track"><div class="progress-fill" data-width="98" style="width:98%"></div></div>
+          </div>
+          <div class="attendance-week-item attendance-week-item-compact">
+            <div class="d-flex justify-content-between mb-1 attendance-meta"><span>Week 3</span><strong>37 / 40 hrs</strong></div>
+            <div class="progress-track"><div class="progress-fill" data-width="92.5" style="width:92.5%;background:linear-gradient(90deg,#1a73e8,#67a8ff)"></div></div>
+          </div>
+          <div class="attendance-week-item attendance-week-item-compact">
+            <div class="d-flex justify-content-between mb-1 attendance-meta"><span>Week 2</span><strong>35 / 40 hrs</strong></div>
+            <div class="progress-track"><div class="progress-fill" data-width="87.5" style="width:87.5%;background:linear-gradient(90deg,#0d8e80,#4bc97a)"></div></div>
+          </div>
+          <div class="attendance-week-item attendance-week-item-compact">
+            <div class="d-flex justify-content-between mb-1 attendance-meta"><span>Week 1</span><strong>33 / 40 hrs</strong></div>
+            <div class="progress-track"><div class="progress-fill" data-width="82.5" style="width:82.5%;background:linear-gradient(90deg,#d4a017,#f0c44d)"></div></div>
+          </div>
+        </div>
+
+        <div class="alert-interntrack attendance-summary-alert" id="att-alert"><i class="fa fa-circle-info me-2"></i>Loading latest DTR status…</div>
+
+        <div class="attendance-insights-grid">
+          <div class="attendance-insight-card">
+            <span class="attendance-insight-label">Average weekly hours</span>
+            <strong id="att-avg-hrs">—</strong>
+            <small id="att-avg-sub">—</small>
+          </div>
+          <div class="attendance-insight-card">
+            <span class="attendance-insight-label">On-time submissions</span>
+            <strong id="att-ontime">—</strong>
+            <small>Strong consistency for coordinator review</small>
+          </div>
+          <div class="attendance-insight-card">
+            <span class="attendance-insight-label">Best attendance streak</span>
+            <strong id="att-streak">—</strong>
+            <small id="att-streak-sub">—</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="content-card">
+  <div class="content-card-header"><i class="fa fa-table-list"></i><h6>Attendance Submission History</h6></div>
+  <div class="table-card">
+    <table class="table table-hover">
+      <thead><tr><th>Period</th><th>Submitted On</th><th>File</th><th>Status</th><th>Hours</th></tr></thead>
+      <tbody>
+        <tr><td>June 16–20, 2025</td><td>June 20, 2025</td><td>DTR_Week8.pdf</td><td><span class="badge-status badge-active">Validated</span></td><td>40 hrs</td></tr>
+        <tr><td>June 09–13, 2025</td><td>June 13, 2025</td><td>DTR_Week7.pdf</td><td><span class="badge-status badge-completed">Submitted</span></td><td>38 hrs</td></tr>
+        <tr><td>June 02–06, 2025</td><td>June 06, 2025</td><td>DTR_Week6.pdf</td><td><span class="badge-status badge-active">Validated</span></td><td>36 hrs</td></tr>
+        <tr><td>May 26–30, 2025</td><td>May 31, 2025</td><td>DTR_Week5.pdf</td><td><span class="badge-status badge-pending">For Review</span></td><td>34 hrs</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
 </main>
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="script.js"></script>
+<script src="../config/config.js"></script>
+<script src="../assets/js/api.js"></script>
+<script src="../assets/js/auth.js"></script>
+<script src="../assets/js/script.js"></script>
+<script>
+(function () {
+  const days = ['Monday','Tuesday','Wednesday','Thursday','Friday'];
+  const form = document.querySelector('.col-lg-5 .content-card');
+  const rows = form.querySelectorAll('table tbody tr');
+  const coverageFrom = form.querySelector('input[type="date"]:first-of-type') || form.querySelectorAll('input[type="date"]')[0];
+  const coverageTo = form.querySelectorAll('input[type="date"]')[1];
+  const noteField = form.querySelector('textarea');
+  const btnSubmit = form.querySelector('.btn-green');
+  const btnDraft = form.querySelector('.btn-outline-green');
+
+  function buildPayload(status) {
+    const session = auth.getSession();
+    const entries = [];
+    rows.forEach((row, i) => {
+      const inputs = row.querySelectorAll('input[type="time"]');
+      const timeIn = inputs[0].value;
+      const timeOut = inputs[1].value;
+      if (timeIn && timeOut) {
+        entries.push({ dayOfWeek: days[i], timeIn, timeOut });
+      }
+    });
+    return {
+      studentId: session ? session.id : null,
+      coverageFrom: coverageFrom.value,
+      coverageTo: coverageTo.value,
+      supervisorNote: noteField.value,
+      status,
+      entries,
+    };
+  }
+
+  async function handleSubmit(status) {
+    const payload = buildPayload(status);
+    if (!payload.studentId) {
+      return alert('You must be logged in to submit attendance.');
+    }
+    if (!payload.coverageFrom || !payload.coverageTo) {
+      return alert('Please fill in coverage dates.');
+    }
+    if (!payload.entries.length) {
+      return alert('Please enter at least one day\'s time in/out.');
+    }
+    const res = await api.submitAttendance(payload);
+    if (res.success) {
+      alert(status === 'SUBMITTED' ? 'DTR submitted successfully!' : 'Draft saved.');
+    } else {
+      alert('Error: ' + (res.message || 'Submission failed.'));
+    }
+  }
+
+  btnSubmit.addEventListener('click', (e) => { e.preventDefault(); handleSubmit('SUBMITTED'); });
+  btnDraft.addEventListener('click', (e) => { e.preventDefault(); handleSubmit('DRAFT'); });
+
+  // Auto-calculate hours per row
+  rows.forEach((row) => {
+    const inputs = row.querySelectorAll('input[type="time"]');
+    const hrsCell = row.querySelector('td:last-child');
+    inputs.forEach((inp) => {
+      inp.addEventListener('change', () => {
+        const tIn = inputs[0].value;
+        const tOut = inputs[1].value;
+        if (tIn && tOut) {
+          const [h1,m1] = tIn.split(':').map(Number);
+          const [h2,m2] = tOut.split(':').map(Number);
+          const hrs = ((h2*60+m2) - (h1*60+m1)) / 60;
+          hrsCell.textContent = hrs > 0 ? hrs.toFixed(1) + ' hrs' : '\u2014';
+        } else {
+          hrsCell.textContent = '\u2014';
+        }
+      });
+    });
+  });
+
+  // --- Load attendance data from API and populate dashboard ---
+  async function loadAttendanceData() {
+    const session = auth.getSession();
+    if (!session || !session.id) return;
+    const res = await api.getAttendanceByStudent(session.id);
+    if (!res.success || !res.data) return;
+    const records = res.data;
+
+    // Compute stats
+    let totalHours = 0;
+    let validatedDays = 0;
+    let submittedCount = 0;
+    const targetHours = 500;
+    const weeklyMap = {};
+
+    records.forEach((r, idx) => {
+      const weekNum = records.length - idx;
+      let weekHrs = 0;
+      let dayCount = 0;
+      if (r.entries) {
+        r.entries.forEach((e) => {
+          if (e.hoursRendered && e.hoursRendered > 0) {
+            weekHrs += e.hoursRendered;
+            dayCount++;
+          }
+        });
+      }
+      totalHours += weekHrs;
+      validatedDays += dayCount;
+      if (r.status === 'SUBMITTED' || r.status === 'VALIDATED') submittedCount++;
+      weeklyMap[weekNum] = { hrs: weekHrs, from: r.coverageFrom, to: r.coverageTo, status: r.status, createdAt: r.createdAt };
+    });
+
+    const hoursRemaining = Math.max(0, targetHours - totalHours);
+
+    // Update stat cards
+    const statValues = document.querySelectorAll('.stat-value');
+    if (statValues.length >= 4) {
+      statValues[0].textContent = validatedDays;
+      statValues[1].textContent = totalHours.toFixed(0);
+      statValues[2].textContent = submittedCount;
+      statValues[3].textContent = hoursRemaining.toFixed(0);
+    }
+
+    // Update weekly summary
+    const weekList = document.querySelector('.attendance-week-list');
+    if (weekList) {
+      weekList.innerHTML = '';
+      const weekNums = Object.keys(weeklyMap).sort((a,b) => b - a);
+      weekNums.forEach((wn, i) => {
+        const w = weeklyMap[wn];
+        const pct = Math.min(100, (w.hrs / 40) * 100);
+        const featured = i === 0 ? ' attendance-week-item-featured' : '';
+        const compact = i > 2 ? ' attendance-week-item-compact' : '';
+        weekList.innerHTML += `
+          <div class="attendance-week-item${featured}${compact}">
+            <div class="d-flex justify-content-between mb-1 attendance-meta"><span>Week ${wn}</span><strong>${w.hrs.toFixed(0)} / 40 hrs</strong></div>
+            <div class="progress-track"><div class="progress-fill" data-width="${pct.toFixed(0)}" style="width:${pct.toFixed(0)}%"></div></div>
+          </div>`;
+      });
+    }
+
+    // Update submission history table
+    const historyBody = document.querySelector('.table-card table tbody');
+    if (historyBody) {
+      historyBody.innerHTML = '';
+      records.forEach((r) => {
+        const from = r.coverageFrom || '';
+        const to = r.coverageTo || '';
+        const submitted = r.createdAt ? r.createdAt.substring(0, 10) : '';
+        const totalWeekHrs = r.entries ? r.entries.reduce((s, e) => s + (e.hoursRendered || 0), 0) : 0;
+        let badgeClass = 'badge-pending';
+        let badgeLabel = r.status || 'Draft';
+        if (r.status === 'VALIDATED') { badgeClass = 'badge-active'; badgeLabel = 'Validated'; }
+        else if (r.status === 'SUBMITTED') { badgeClass = 'badge-completed'; badgeLabel = 'Submitted'; }
+        else if (r.status === 'DRAFT') { badgeClass = 'badge-pending'; badgeLabel = 'Draft'; }
+        historyBody.innerHTML += `
+          <tr>
+            <td>${from} \u2013 ${to}</td>
+            <td>${submitted}</td>
+            <td>\u2014</td>
+            <td><span class="badge-status ${badgeClass}">${badgeLabel}</span></td>
+            <td>${totalWeekHrs.toFixed(0)} hrs</td>
+          </tr>`;
+      });
+    }
+    // Update insights
+    const totalWeeks = records.length;
+    const avgHrs = totalWeeks > 0 ? (totalHours / totalWeeks) : 0;
+
+    const elAvgHrs = document.getElementById('att-avg-hrs');
+    const elAvgSub = document.getElementById('att-avg-sub');
+    if (elAvgHrs) elAvgHrs.textContent = avgHrs.toFixed(1) + ' hrs';
+    if (elAvgSub) elAvgSub.textContent = 'Across the last ' + totalWeeks + ' recorded week' + (totalWeeks !== 1 ? 's' : '');
+
+    // On-time = SUBMITTED or VALIDATED
+    const ontimeCount = records.filter(r => r.status === 'SUBMITTED' || r.status === 'VALIDATED').length;
+    const elOntime = document.getElementById('att-ontime');
+    if (elOntime) elOntime.textContent = ontimeCount + ' / ' + totalWeeks + ' weeks';
+
+    // Best streak of weeks >= 90% (36 of 40 hrs)
+    let bestStreak = 0, curStreak = 0, streakStart = 0, bestStart = 0;
+    const weekNums2 = Object.keys(weeklyMap).sort((a,b) => a - b);
+    weekNums2.forEach((wn) => {
+      const pct = (weeklyMap[wn].hrs / 40) * 100;
+      if (pct >= 90) {
+        if (curStreak === 0) streakStart = Number(wn);
+        curStreak++;
+        if (curStreak > bestStreak) { bestStreak = curStreak; bestStart = streakStart; }
+      } else {
+        curStreak = 0;
+      }
+    });
+    const elStreak = document.getElementById('att-streak');
+    const elStreakSub = document.getElementById('att-streak-sub');
+    if (elStreak) elStreak.textContent = bestStreak + ' week' + (bestStreak !== 1 ? 's' : '');
+    if (elStreakSub && bestStreak > 0) {
+      elStreakSub.textContent = 'Week ' + bestStart + ' to Week ' + (bestStart + bestStreak - 1) + ' stayed above 90%';
+    } else if (elStreakSub) {
+      elStreakSub.textContent = 'No streak above 90% yet';
+    }
+
+    // Alert banner
+    const elAlert = document.getElementById('att-alert');
+    if (elAlert && records.length > 0) {
+      const latest = records[0];
+      const latestWeek = records.length;
+      const statusText = latest.status === 'VALIDATED' ? 'validated by the coordinator' : (latest.status === 'SUBMITTED' ? 'submitted and pending review' : 'saved as draft');
+      const dateText = latest.updatedAt ? latest.updatedAt.substring(0, 10) : '';
+      elAlert.innerHTML = '<i class="fa fa-circle-info me-2"></i>Your latest DTR for Week ' + latestWeek + ' was ' + statusText + (dateText ? ' on ' + dateText : '') + '.';
+    }
+  }
+
+  loadAttendanceData();
+})();
+</script>
 </body>
 </html>

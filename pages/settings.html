@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Evaluations – INTERNTRACK</title>
+  <title>Settings – INTERNTRACK</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-  <link rel="stylesheet" href="styles.css"/>
+  <link rel="stylesheet" href="../assets/css/styles.css"/>
 </head>
 <body class="page-body">
 <!-- SIDEBAR -->
@@ -22,122 +22,208 @@
     <div class="nav-section-label">Main</div>
     <a href="dashboard.html" class="sidebar-link"><i class="fa fa-tachometer-alt"></i> Dashboard</a>
     <a href="records.html" class="sidebar-link"><i class="fa fa-folder-open"></i> Student Records</a>
+    <a href="monitoring.html" class="sidebar-link"><i class="fa fa-chart-line"></i> Monitoring</a>
     <div class="nav-section-label">Tools</div>
     <a href="attendance.html" class="sidebar-link"><i class="fa fa-calendar-check"></i> Attendance</a>
     <a href="logbook.html" class="sidebar-link"><i class="fa fa-book-open"></i> Logbook</a>
     <a href="documents.html" class="sidebar-link"><i class="fa fa-file-alt"></i> Documents</a>
-    <a href="evaluations.html" class="sidebar-link active"><i class="fa fa-star"></i> Evaluations</a>
+    <a href="evaluations.html" class="sidebar-link"><i class="fa fa-star"></i> Evaluations</a>
     <div class="nav-section-label">Account</div>
-    <a href="settings.html" class="sidebar-link"><i class="fa fa-cog"></i> Settings</a>
-    <a href="index_single_role.html" class="sidebar-link"><i class="fa fa-sign-out-alt"></i> Logout</a>
+    <a href="settings.html" class="sidebar-link active"><i class="fa fa-cog"></i> Settings</a>
+    <a href="index.html" class="sidebar-link"><i class="fa fa-sign-out-alt"></i> Logout</a>
   </nav>
 </aside>
 <header class="topbar">
-  <div class="topbar-title"><i class="fa fa-star me-2" style="color:var(--green-main)"></i>Evaluations</div>
+  <div class="topbar-title"><i class="fa fa-cog me-2" style="color:var(--green-main)"></i>Settings</div>
   <div class="topbar-right">
     <span style="font-size:.78rem;color:var(--text-light)">AY 2024–2025, Sem 2</span>
     <div class="topbar-avatar">JS</div>
   </div>
 </header>
-<main class="main-content evaluation-page">
-<div class="page-shell">
-  <div class="row g-4 mb-4">
-    <div class="col-sm-6 col-xl-3"><div class="stat-card evaluation-stat evaluation-stat-score" style="border-left-color:#1a7a3f"><div class="stat-icon green"><i class="fa fa-star"></i></div><div><div class="stat-value">88</div><div class="stat-label">Current Score</div></div></div></div>
-    <div class="col-sm-6 col-xl-3"><div class="stat-card evaluation-stat evaluation-stat-trend" style="border-left-color:#0d8e80"><div class="stat-icon teal"><i class="fa fa-chart-line"></i></div><div><div class="stat-value">+6</div><div class="stat-label">Since Midterm</div></div></div></div>
-    <div class="col-sm-6 col-xl-3"><div class="stat-card evaluation-stat evaluation-stat-forms" style="border-left-color:#d4a017"><div class="stat-icon amber"><i class="fa fa-clipboard-check"></i></div><div><div class="stat-value">2/3</div><div class="stat-label">Forms Submitted</div></div></div></div>
-    <div class="col-sm-6 col-xl-3"><div class="stat-card evaluation-stat evaluation-stat-pending" style="border-left-color:#1a73e8"><div class="stat-icon blue"><i class="fa fa-user-tie"></i></div><div><div class="stat-value">1</div><div class="stat-label">Supervisor Pending</div></div></div></div>
-  </div>
+<main class="main-content">
 
-  <div class="row g-4 mb-4">
-    <div class="col-lg-7">
-      <div class="content-card evaluation-panel h-100">
-        <div class="content-card-header evaluation-panel-header">
-          <div class="evaluation-header-copy"><i class="fa fa-award"></i><div><h6>Evaluation Breakdown</h6><p class="panel-subtitle">Performance indicators based on submitted supervisor and coordinator assessments.</p></div></div>
-          <span class="hero-chip hero-chip-muted evaluation-chip">Overall 88 / 100</span>
-        </div>
-        <div class="evaluation-breakdown">
-          <div class="evaluation-metric">
-            <div class="evaluation-metric-head"><span>Work Quality</span><strong>92%</strong></div>
-            <div class="progress-track progress-track-thick"><div class="progress-fill" data-width="92" style="width:92%"></div></div>
-          </div>
-          <div class="evaluation-metric">
-            <div class="evaluation-metric-head"><span>Punctuality</span><strong>85%</strong></div>
-            <div class="progress-track progress-track-thick"><div class="progress-fill" data-width="85" style="width:85%;background:linear-gradient(90deg,#0d8e80,#4bc97a)"></div></div>
-          </div>
-          <div class="evaluation-metric">
-            <div class="evaluation-metric-head"><span>Communication</span><strong>86%</strong></div>
-            <div class="progress-track progress-track-thick"><div class="progress-fill" data-width="86" style="width:86%;background:linear-gradient(90deg,#1a73e8,#67a8ff)"></div></div>
-          </div>
-          <div class="evaluation-metric">
-            <div class="evaluation-metric-head"><span>Initiative</span><strong>89%</strong></div>
-            <div class="progress-track progress-track-thick"><div class="progress-fill" data-width="89" style="width:89%;background:linear-gradient(90deg,#d4a017,#f4c842)"></div></div>
-          </div>
+<div class="row g-4 settings-layout">
+  <div class="col-xl-4 col-lg-5 d-flex">
+    <div class="content-card settings-summary-card w-100">
+      <div class="content-card-header"><i class="fa fa-user-gear"></i><h6>Profile Summary</h6></div>
+      <div class="settings-profile-top">
+        <div class="settings-avatar settings-avatar-lg">JS</div>
+        <div class="settings-identity">
+          <h5>Juan dela Cruz</h5>
+          <p>BSInfoTech 4-A · 2021-00123</p>
+          <span class="settings-role-pill">Student Account</span>
         </div>
       </div>
-    </div>
 
-    <div class="col-lg-5">
-      <div class="content-card evaluation-panel h-100">
-        <div class="content-card-header evaluation-panel-header">
-          <div class="evaluation-header-copy"><i class="fa fa-list-timeline"></i><div><h6>Evaluation Schedule</h6><p class="panel-subtitle">Track completed milestones and the remaining final assessment deadline.</p></div></div>
+      <div class="settings-meta-list">
+        <div class="settings-meta-item">
+          <span class="settings-meta-label">Assigned Company</span>
+          <strong>TechCorp PH</strong>
         </div>
-        <div class="evaluation-timeline">
-          <div class="evaluation-timeline-item is-done">
-            <div class="timeline-dot"></div>
-            <div class="timeline-copy"><strong>Pre-Deployment Checklist</strong><span>Completed on May 20, 2025</span></div>
-            <span class="badge-status badge-active">Completed</span>
-          </div>
-          <div class="evaluation-timeline-item is-done">
-            <div class="timeline-dot"></div>
-            <div class="timeline-copy"><strong>Midterm Evaluation</strong><span>Completed on June 08, 2025</span></div>
-            <span class="badge-status badge-active">Completed</span>
-          </div>
-          <div class="evaluation-timeline-item is-pending">
-            <div class="timeline-dot"></div>
-            <div class="timeline-copy"><strong>Final Evaluation</strong><span>Due on June 30, 2025</span></div>
-            <span class="badge-status badge-pending">Upcoming</span>
-          </div>
+        <div class="settings-meta-item">
+          <span class="settings-meta-label">Coordinator</span>
+          <strong>Maria Santos</strong>
         </div>
+        <div class="settings-meta-item">
+          <span class="settings-meta-label">Internship Term</span>
+          <strong>AY 2024–2025, Sem 2</strong>
+        </div>
+      </div>
+
+      <div class="settings-stats-grid">
+        <div class="settings-stat-card">
+          <span>Profile Completion</span>
+          <strong>92%</strong>
+        </div>
+        <div class="settings-stat-card">
+          <span>Security Status</span>
+          <strong>Standard</strong>
+        </div>
+        <div class="settings-stat-card">
+          <span>Notifications</span>
+          <strong>2 Enabled</strong>
+        </div>
+        <div class="settings-stat-card">
+          <span>Last Update</span>
+          <strong>Today</strong>
+        </div>
+      </div>
+
+      <div class="settings-summary-note">
+        <i class="fa fa-circle-info"></i>
+        <span>Keep your contact details and internship information updated so coordinators can reach you quickly.</span>
       </div>
     </div>
   </div>
 
-  <div class="content-card evaluation-table-panel">
-    <div class="content-card-header evaluation-panel-header">
-      <div class="evaluation-header-copy"><i class="fa fa-clipboard-list"></i><div><h6>Evaluation Forms</h6><p class="panel-subtitle">Submitted forms, assigned evaluators, and follow-up actions for pending documents.</p></div></div>
-    </div>
-    <div class="table-card table-card-soft">
-      <table class="table table-hover align-middle evaluation-table">
-        <thead><tr><th>Form</th><th>Evaluator</th><th>Date</th><th>Status</th><th>Action</th></tr></thead>
-        <tbody>
-          <tr>
-            <td><div class="table-primary-text">Midterm Performance Evaluation</div><div class="table-secondary-text">Supervisor performance review</div></td>
-            <td><div class="table-primary-text">Company Supervisor</div><div class="table-secondary-text">TechCorp PH</div></td>
-            <td><div class="table-primary-text">June 08, 2025</div><div class="table-secondary-text">Received on time</div></td>
-            <td><span class="badge-status badge-active">Received</span></td>
-            <td><button class="btn-outline-green btn-sm">View</button></td>
-          </tr>
-          <tr>
-            <td><div class="table-primary-text">Coordinator Assessment</div><div class="table-secondary-text">Coordinator academic feedback</div></td>
-            <td><div class="table-primary-text">Internship Coordinator</div><div class="table-secondary-text">University of Cabuyao</div></td>
-            <td><div class="table-primary-text">June 10, 2025</div><div class="table-secondary-text">Validated submission</div></td>
-            <td><span class="badge-status badge-active">Received</span></td>
-            <td><button class="btn-outline-green btn-sm">View</button></td>
-          </tr>
-          <tr>
-            <td><div class="table-primary-text">Final Performance Evaluation</div><div class="table-secondary-text">End-of-internship assessment</div></td>
-            <td><div class="table-primary-text">Company Supervisor</div><div class="table-secondary-text">Awaiting reviewer action</div></td>
-            <td><div class="table-primary-text">Pending</div><div class="table-secondary-text">Due before June 30, 2025</div></td>
-            <td><span class="badge-status badge-pending">Waiting</span></td>
-            <td><button class="btn-green btn-sm">Send Reminder</button></td>
-          </tr>
-        </tbody>
-      </table>
+  <div class="col-xl-8 col-lg-7 d-flex">
+    <div class="content-card settings-section-card account-settings-panel w-100">
+      <div class="content-card-header"><i class="fa fa-id-card"></i><h6>Account Settings</h6></div>
+      <div class="settings-section-intro">Manage your primary profile details used across records, documents, and monitoring.</div>
+      <div class="row g-3 g-lg-4">
+        <div class="col-md-6">
+          <label class="form-label form-label-subtle">Full Name</label>
+          <input class="form-control" value="Juan dela Cruz">
+        </div>
+        <div class="col-md-6">
+          <label class="form-label form-label-subtle">Email Address</label>
+          <input class="form-control" value="juan.delacruz@uc.edu.ph">
+        </div>
+        <div class="col-md-6">
+          <label class="form-label form-label-subtle">Program</label>
+          <input class="form-control" value="BS Information Technology">
+        </div>
+        <div class="col-md-6">
+          <label class="form-label form-label-subtle">Contact Number</label>
+          <input class="form-control" value="0917 123 4567">
+        </div>
+      </div>
+      <div class="settings-actions-row">
+        <button class="btn-green">Save Changes</button>
+        <button class="btn-outline-green">Cancel</button>
+      </div>
     </div>
   </div>
-</div>
+
+  <div class="col-xl-7 col-lg-6 d-flex">
+    <div class="content-card settings-section-card settings-notification-card w-100">
+      <div class="content-card-header"><i class="fa fa-bell"></i><h6>Notifications</h6></div>
+      <div class="settings-section-intro">Choose which reminders and alerts you want to receive during your internship period.</div>
+      <div class="settings-toggle-list">
+        <div class="settings-toggle-row settings-toggle-card">
+          <div>
+            <strong>Email reminders for pending documents</strong>
+            <p>Receive prompts when required files still need submission.</p>
+          </div>
+          <div class="form-check form-switch"><input class="form-check-input" type="checkbox" checked></div>
+        </div>
+        <div class="settings-toggle-row settings-toggle-card">
+          <div>
+            <strong>Attendance validation alerts</strong>
+            <p>Get notified when DTRs and attendance logs are reviewed.</p>
+          </div>
+          <div class="form-check form-switch"><input class="form-check-input" type="checkbox" checked></div>
+        </div>
+        <div class="settings-toggle-row settings-toggle-card">
+          <div>
+            <strong>Evaluation due date reminders</strong>
+            <p>Stay ahead of evaluation deadlines and coordinator follow-ups.</p>
+          </div>
+          <div class="form-check form-switch"><input class="form-check-input" type="checkbox"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xl-5 col-lg-6 d-flex">
+    <div class="content-card settings-section-card settings-security-card w-100">
+      <div class="content-card-header"><i class="fa fa-shield-halved"></i><h6>Security</h6></div>
+      <div class="settings-section-intro">Update your password and strengthen account protection for your school credentials.</div>
+      <div class="row g-3">
+        <div class="col-12">
+          <label class="form-label form-label-subtle">Current Password</label>
+          <input type="password" class="form-control" placeholder="••••••••">
+        </div>
+        <div class="col-12">
+          <label class="form-label form-label-subtle">New Password</label>
+          <input type="password" class="form-control" placeholder="••••••••">
+        </div>
+      </div>
+      <div class="settings-actions-row">
+        <button class="btn-green">Update Password</button>
+        <button class="btn-outline-green">Enable 2-Step Verification</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 d-flex role-coordinator-only d-none">
+    <div class="content-card settings-section-card w-100">
+      <div class="content-card-header"><i class="fa fa-sliders"></i><h6>Coordinator Preferences</h6></div>
+      <div class="settings-section-intro">Set your preferred workflow defaults for validations, visit planning, and report exports.</div>
+      <div class="row g-3 g-lg-4">
+        <div class="col-md-6 col-xl-3">
+          <label class="form-label form-label-subtle">Default landing page</label>
+          <select class="form-select">
+            <option selected>Coordinator Hub</option>
+            <option>Intern Roster</option>
+            <option>Settings</option>
+          </select>
+        </div>
+        <div class="col-md-6 col-xl-3">
+          <label class="form-label form-label-subtle">Weekly digest</label>
+          <select class="form-select">
+            <option selected>Monday 8:00 AM</option>
+            <option>Friday 5:00 PM</option>
+            <option>Disabled</option>
+          </select>
+        </div>
+        <div class="col-md-6 col-xl-3">
+          <label class="form-label form-label-subtle">Report export format</label>
+          <select class="form-select">
+            <option selected>PDF summary</option>
+            <option>Spreadsheet</option>
+            <option>Presentation brief</option>
+          </select>
+        </div>
+        <div class="col-md-6 col-xl-3">
+          <label class="form-label form-label-subtle">Supervisor reminder lead time</label>
+          <select class="form-select">
+            <option selected>24 hours before</option>
+            <option>48 hours before</option>
+            <option>Same day</option>
+          </select>
+        </div>
+      </div>
+      <div class="settings-actions-row">
+        <button class="btn-green" type="button" onclick="showToast('Coordinator preferences saved.', 'success')">Save Preferences</button>
+        <button class="btn-outline-green" type="button" onclick="showToast('Coordinator defaults restored.', 'info')">Restore Defaults</button>
+      </div>
+    </div>
+  </div>
+</div></div>
+
 </main>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="script.js"></script>
+<script src="../config/config.js"></script>`n  <script src="../assets/js/api.js"></script>`n  <script src="../assets/js/auth.js"></script>`n  <script src="../assets/js/script.js"></script>
 </body>
 </html>
